@@ -40,7 +40,7 @@ getAppreciation = (event) => {
 
   filteredData.map(row => {
     if(row[1].toLowerCase().replaceAll(' ', '') == name) {
-      adjectives = row.slice(2);
+      adjectives = row;
       return;
     }
   })
@@ -48,6 +48,9 @@ getAppreciation = (event) => {
   if(adjectives.length > 0) {
     p.innerText = 'Your teammates appreciate you because you are:';
     dataDiv.appendChild(p);
+
+    adjectives = adjectives.slice(2);
+    console.log(adjectives);
 
     adjectives.map(a => {
       if(a) {
@@ -73,4 +76,3 @@ hitEnter = (event) => {
 
 submitBtn.addEventListener('click', getAppreciation);
 nameInput.addEventListener('keypress', hitEnter);
-// test
