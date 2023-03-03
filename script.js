@@ -76,3 +76,4 @@ hitEnter = (event) => {
 
 submitBtn.addEventListener('click', getAppreciation);
 nameInput.addEventListener('keypress', hitEnter);
+// test
