@@ -3,7 +3,7 @@
 const submitBtn = document.getElementById('submit');
 let filteredData = [];
 const xhr = new XMLHttpRequest();
-const form = document.getElementById('form')
+const nameInput = document.getElementById('fname')
 
 // Method to read CSV data
 const getData = () => {
@@ -67,10 +67,9 @@ getAppreciation = (event) => {
 
 hitEnter = (event) => {
   if(event.key === 'Enter') {
-    event.preventDefault();
     getAppreciation(event);
   }
 }
 
 submitBtn.addEventListener('click', getAppreciation);
-form.addEventListener('keypress', hitEnter);
+nameInput.addEventListener('keypress', hitEnter);
