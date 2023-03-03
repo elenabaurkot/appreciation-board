@@ -3,6 +3,7 @@
 const submitBtn = document.getElementById('submit');
 let filteredData = [];
 const xhr = new XMLHttpRequest();
+const form = document.getElementById('form')
 
 // Method to read CSV data
 const getData = () => {
@@ -39,7 +40,7 @@ getAppreciation = (event) => {
 
   filteredData.map(row => {
     if(row[1].toLowerCase().replaceAll(' ', '') == name) {
-      adjectives = row;
+      adjectives = row.slice(2);
       return;
     }
   })
@@ -64,4 +65,12 @@ getAppreciation = (event) => {
 
 }
 
+hitEnter = (event) => {
+  if(event.key === 'Enter') {
+    event.preventDefault();
+    getAppreciation(event);
+  }
+}
+
 submitBtn.addEventListener('click', getAppreciation);
+form.addEventListener('keypress', hitEnter);
